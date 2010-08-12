@@ -89,6 +89,13 @@
 +(NSString *) stringFromQuery:(sqlite3_stmt *)statement inColumn:(NSInteger)colNum;
 
 /**
+ * Executes the provided query and returns the status code. This method 
+ * is used for queries which produce no results, but the success of 
+ * which still needs to be tracked.
+ */
++(NSInteger) executeQuery:(NSString *)query;
+
+/**
  * Executes the provided query, returning an array of dictionaries.
  * The keys of the dictionary correspond to the column names of the 
  * columns returned in the query, with the values all being NSString objects

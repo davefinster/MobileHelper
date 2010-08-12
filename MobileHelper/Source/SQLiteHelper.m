@@ -143,6 +143,16 @@
 	}
 }
 
++(NSInteger) executeQuery:(NSString *)query{
+	sqlite3_stmt *statement = [SQLiteHelper statementForQuery:query];
+	NSInteger result = -1;
+	if (statement != nil) {
+		result = sqlite3_step(statement);
+		sqlite3_finalize(statement);
+	}
+	return result;
+}
+
 +(NSArray *) resultsForQuery:(NSString *)query{
 	sqlite3_stmt *statement = [SQLiteHelper statementForQuery:query];
 	NSMutableArray *array = nil;
