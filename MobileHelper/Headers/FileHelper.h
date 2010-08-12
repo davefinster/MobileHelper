@@ -20,10 +20,35 @@
 
 }
 
+/**
+ * Returns the path to the documents directory of the current application
+ */
 +(NSString *) documentsDirectory;
+
+/**
+ * Returns the path to a file named "fileName" in the documents 
+ * directory.
+ */
 +(NSString *) documentsPathForFileNamed:(NSString *)fileName;
+
+/**
+ * Returns the path to the temporary data directory of the 
+ * current application
+ */
 +(NSString *) temporaryDirectory;
+
+/**
+ * Returns the path to a file named "fileName" in the temporary data 
+ * directory of the current application
+ */
 +(NSString *) temporaryPathForFileNamed:(NSString *)fileName;
+
+/**
+ * Saves the specified image to the documents directory with a 
+ * random filename based on the current time interval since 1970 
+ * and a random number. Images are saved in PNG format. Returns 
+ * the path to the newly created file.
+ */
 +(NSString *) saveImageToFile:(UIImage *)image;
 
 @end
