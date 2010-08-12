@@ -1,0 +1,43 @@
+/*
+ * Copyright 2010 Dave Finster
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+Purpose:
+Though my iPhone development cycles, I've produced a fair amount of code 
+that I'm not overly proud of (as most developers probably do at some point).
+I tend to interact with SQLite a fair bit as I like to customise the 
+behaviour and performance my saved/sync'd objects between SQLite and my code.
+I also tend to be particular about my RAM footprint when dealing with images, 
+thus relying heavily on file system storage of both downloaded and captured 
+(with the camera/from photo library) images. I wrote these snippets of code 
+to cut down the amount of replicated SQLite code and centralise anything 
+related to addressing files on disk.
+
+1. FileHelper
+	Basically stops you from having to store/manually extract the path to 
+the documents and temporary directory and compile file path strings 
+yourself. Also has the facility to save an image directly to the documents 
+folder simply by specifying the UIImage object. It returns a (hopefully) 
+unique file name based on the time interval since 1970 and a random number.
+
+2. SQLiteHelper
+	Ensures that there is only one SQLite connection open to your local 
+database throughout the app, with all internal methods also referencing 
+this singleton. Provides convenience methods for checking if tables 
+or certain values exist in the database, preparing queries for execution, 
+extracting values from successful queries, conversion between column 
+names and column indices and a function which performs a SELECT query, 
+returning all the results in a easy to use NSDictionary
+
