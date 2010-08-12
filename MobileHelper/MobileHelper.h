@@ -13,17 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
-@interface FileHelper : NSObject {
+#import "SQLiteHelper.h"
+#import "FileHelper.h"
 
-}
-
-+(NSString *) documentsDirectory;
-+(NSString *) documentsPathForFileNamed:(NSString *)fileName;
-+(NSString *) temporaryDirectory;
-+(NSString *) temporaryPathForFileNamed:(NSString *)fileName;
-+(NSString *) saveImageToFile:(UIImage *)image;
-
-@end
+#define DEFAULT_DATABASE_PATH @"database.db"
