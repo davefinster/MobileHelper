@@ -37,7 +37,7 @@
 }
 
 +(NSString *) saveImageToFile:(UIImage *)image{
-	NSString *fileName = [NSString stringWithFormat:@"%d%d.png", abs([[NSDate date] timeIntervalSince1970]), arc4random()];
+	NSString *fileName = [NSString stringWithFormat:@"%d%d.png", abs([[NSDate date] timeIntervalSince1970]), arc4random() % 100000];
 	NSString *filePath = [FileHelper documentsPathForFileNamed:fileName];
 	[UIImagePNGRepresentation(image) writeToFile:filePath atomically:YES];
 	return fileName;
